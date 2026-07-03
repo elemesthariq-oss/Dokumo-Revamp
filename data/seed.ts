@@ -1,0 +1,110 @@
+import type { Category, Document, Folder, User } from '~/types'
+
+export const categories: Category[] = [
+  'Administrasi',
+  'Legal',
+  'Payroll',
+  'Training & Sertifikasi',
+  'Keuangan',
+]
+
+export const user: User = {
+  id: 'user-admin',
+  name: 'Isabella Montgomery',
+  role: 'Admin',
+  initials: 'IM',
+}
+
+export const folders: Folder[] = [
+  { id: 'invoice', name: 'Folder Invoice', count: 20, category: 'Keuangan', parentId: null },
+  { id: 'ktp', name: 'Folder KTP', count: 10, category: 'Administrasi', parentId: null },
+  { id: 'agreement', name: 'Folder Agreement', count: 50, category: 'Legal', parentId: null },
+  { id: 'npwp', name: 'Folder NPWP', count: 20, category: 'Keuangan', parentId: null },
+  { id: 'employment', name: 'Folder Employment', count: 100, category: 'Payroll', parentId: null },
+  { id: 'legal', name: 'Folder Legal', count: 20, category: 'Legal', parentId: null },
+]
+
+export const documents: Document[] = [
+  {
+    id: 'doc-001',
+    title: 'scan_perjanjian_kredit_kendaraan_01.pdf',
+    content: 'Perjanjian pembiayaan kendaraan bermotor antara PT Mandiri Utama Finance dengan debitur. Jangka waktu kredit 36 bulan, angsuran pokok dibayarkan tiap tanggal 5, serta memuat klausul akad dan jaminan kendaraan.',
+    pages: 10,
+    source: 'Scanner Front Office 01',
+    category: 'Legal',
+    folderId: 'agreement',
+    scannedAt: '2026-04-14T09:12:00+07:00',
+  },
+  {
+    id: 'doc-002',
+    title: 'scan_slip_gaji_karyawan_mar.pdf',
+    content: 'Slip gaji bulan Maret untuk pegawai tetap. Dokumen payroll mencantumkan penghasilan pokok, tunjangan, potongan PPh 21, dan total upah bersih yang diterima karyawan.',
+    pages: 3,
+    source: 'HR Scanner 02',
+    category: 'Payroll',
+    folderId: 'employment',
+    scannedAt: '2026-04-12T16:40:00+07:00',
+    sharedWithMe: true,
+  },
+  {
+    id: 'doc-003',
+    title: 'scan_npwp_perusahaan.pdf',
+    content: 'Kartu NPWP perusahaan sebagai nomor pokok wajib pajak. Berisi identitas pajak, alamat kantor, status PKP, dan referensi PPN untuk proses faktur pembiayaan.',
+    pages: 1,
+    source: 'Scanner Front Office 01',
+    category: 'Keuangan',
+    folderId: 'npwp',
+    scannedAt: '2026-04-11T10:05:00+07:00',
+  },
+  {
+    id: 'doc-004',
+    title: 'scan_ktp_debitur_andini.pdf',
+    content: 'Hasil scan KTP debitur atas nama Andini untuk verifikasi identitas dan kependudukan. Data dipakai pada proses pembiayaan kendaraan serta pemeriksaan alamat nasabah.',
+    pages: 1,
+    source: 'Scanner Front Office 01',
+    category: 'Administrasi',
+    folderId: 'ktp',
+    scannedAt: '2026-04-14T09:12:00+07:00',
+    sharedWithMe: true,
+  },
+  {
+    id: 'doc-005',
+    title: 'scan_invoice_dealer_april.pdf',
+    content: 'Invoice dealer periode April berisi tagihan unit kendaraan, nomor faktur, nilai PPN, biaya administrasi, dan jadwal pembayaran kepada mitra otomotif.',
+    pages: 2,
+    source: 'Scanner Front Office 01',
+    category: 'Keuangan',
+    folderId: 'invoice',
+    scannedAt: '2026-04-13T14:22:00+07:00',
+  },
+  {
+    id: 'doc-006',
+    title: 'scan_kontrak_kerja_karyawan.pdf',
+    content: 'Kontrak kerja karyawan untuk posisi operasional cabang. Dokumen PKWT memuat perjanjian masa kerja, struktur gaji, hak cuti, dan ketentuan payroll perusahaan.',
+    pages: 8,
+    source: 'HR Scanner 02',
+    category: 'Payroll',
+    folderId: 'employment',
+    scannedAt: '2026-04-10T08:30:00+07:00',
+  },
+  {
+    id: 'doc-007',
+    title: 'scan_sertifikat_pelatihan_k3.pdf',
+    content: 'Sertifikat pelatihan K3 untuk staff operasional. Berisi nomor sertifikasi, tanggal training, materi keselamatan kerja, dan validitas sertifikat dari penyelenggara.',
+    pages: 2,
+    source: 'Training Center',
+    category: 'Training & Sertifikasi',
+    folderId: 'employment',
+    scannedAt: '2026-04-09T11:15:00+07:00',
+  },
+  {
+    id: 'doc-008',
+    title: 'scan_agreement_addendum_v2.pdf',
+    content: 'Addendum agreement pembiayaan yang memperbarui klausul perjanjian kredit, skema cicilan, jadwal angsuran, dan ketentuan pinjaman untuk debitur korporat.',
+    pages: 4,
+    source: 'Legal Desk',
+    category: 'Legal',
+    folderId: 'legal',
+    scannedAt: '2026-04-08T13:50:00+07:00',
+  },
+]

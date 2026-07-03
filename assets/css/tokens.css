@@ -1,0 +1,82 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #fafbff;
+  --border: #eceef4;
+  --border-strong: #e2e6ef;
+  --ink: #0f172a;
+  --ink-2: #475569;
+  --ink-3: #8a93a6;
+  --brand: #6d5efc;
+  --brand-strong: #5b4ce0;
+  --brand-tint: #f1efff;
+  --brand-tint-2: #e9e6ff;
+  --action: #3b82f6;
+  --danger: #ef4444;
+  --success: #047857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 3px rgba(109, 94, 252, .35);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #7c5cff 0%, #5b4ce0 100%);
+}
+
+.logo-gradient {
+  background: linear-gradient(135deg, #7c5cff 0%, #4338ca 100%);
+}
+
+.avatar-gradient {
+  background: linear-gradient(135deg, #fca5a5 0%, #f472b6 100%);
+}
+
+.search-ring {
+  border: 1.5px solid var(--brand);
+  box-shadow: 0 0 0 4px rgba(109, 94, 252, .12);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
