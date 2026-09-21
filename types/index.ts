@@ -11,12 +11,25 @@ export interface DocumentMetadata {
   documentYear?: string
   documentDate?: string
   amount?: string
+  taxBase?: string
+  vat?: string
+  totalAmount?: string
   vendorName?: string
   confidence?: number
   extractionSource?: 'pdf-text' | 'ocr' | 'manual' | 'filename'
   rawOcrText?: string
   folderPath?: string
   needsReview?: boolean
+  /** ISO date (yyyy-mm-dd) the document/invoice is due — enables jatuh tempo detection. */
+  dueDate?: string
+  /** Payment/settlement status for finance documents. */
+  paymentStatus?: 'lunas' | 'belum-dibayar' | 'jatuh-tempo'
+  /** Purchase order number referenced by an invoice (or the PO's own number). */
+  poNumber?: string
+  /** Id of a related document (e.g. the invoice a PO is matched with, or vice versa). */
+  relatedDocumentId?: string
+  /** Page → section label map so sources can point at "Hal. 2 • Rincian Pajak". */
+  sections?: Array<{ page: number; label: string; anchor: string }>
 }
 
 export interface Document {

@@ -7,6 +7,7 @@ import ShareModal from '~/components/modals/ShareModal.vue'
 import FolderModal from '~/components/modals/FolderModal.vue'
 import EditDocumentModal from '~/components/modals/EditDocumentModal.vue'
 import ToastStack from '~/components/ui/ToastStack.vue'
+import DocumentAssistant from '~/components/document/DocumentAssistant.vue'
 
 const ui = useUiStore()
 const docs = useDocumentsStore()
@@ -33,5 +34,6 @@ onMounted(() => docs.hydrate())
     <FolderModal />
     <EditDocumentModal />
     <ToastStack />
+    <DocumentAssistant />
   </div>
 </template>

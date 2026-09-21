@@ -7,9 +7,10 @@ import type { Document } from '~/types'
 const props = defineProps<{
   document: Document
   folderLabel?: string
+  initialPage?: number
 }>()
 
-const activePage = ref(1)
+const activePage = ref(props.initialPage && props.initialPage > 0 ? props.initialPage : 1)
 const pageCount = ref(1)
 const loading = ref(false)
 const error = ref('')
@@ -44,6 +45,9 @@ const fileMeta = computed(() => {
     { label: 'Tahun Dokumen', value: metadata.documentYear || '' },
     { label: 'Tanggal Dokumen', value: metadata.documentDate || '' },
     { label: 'Amount', value: metadata.amount || '' },
+    { label: 'DPP', value: metadata.taxBase || '' },
+    { label: 'PPN', value: metadata.vat || '' },
+    { label: 'Total Nominal', value: metadata.totalAmount || '' },
     { label: 'Vendor', value: metadata.vendorName || '' },
     { label: 'Confidence', value: metadata.confidence !== undefined ? `${metadata.confidence}%${metadata.needsReview ? ' - Needs Review' : ''}` : '' },
     { label: 'Extraction Source', value: metadata.extractionSource || '' },
@@ -178,11 +182,15 @@ async function renderPreview() {
 }
 
 watch(() => props.document.id, () => {
-  activePage.value = 1
+  activePage.value = props.initialPage && props.initialPage > 0 ? props.initialPage : 1
   pageCount.value = Math.max(1, props.document.pages || 1)
   storedFileDataUrl.value = ''
   nextTick(renderPreview)
 }, { immediate: true })
+
+watch(() => props.initialPage, (page) => {
+  if (page && page > 0 && page <= pageCount.value) activePage.value = page
+})
 
 watch(activePage, async () => {
   if (!isPdf.value || !pdfDocument) return

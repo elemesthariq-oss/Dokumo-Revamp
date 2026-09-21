@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Bot, CircleHelp, FileStack, FolderKanban, GitBranch, Plus, Settings, Share2, Sparkles } from 'lucide-vue-next'
+import { CircleHelp, FileStack, FolderKanban, GitBranch, Plus, Settings, Share2, Sparkles } from 'lucide-vue-next'
 
 const route = useRoute()
 const docs = useDocumentsStore()
@@ -11,7 +11,6 @@ const nav = [
   { label: 'Workflow', to: '/workflow', icon: GitBranch },
   { label: 'Dibagikan ke Saya', to: '/dibagikan', icon: Share2 },
   { label: 'Template', to: '/template', icon: FileStack },
-  { label: 'Tanya Dokumen', to: '/tanya', icon: Bot, badge: 'AI' },
 ]
 
 const subnav = [
